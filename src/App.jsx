@@ -12,6 +12,7 @@ import AnalyticsPage from './pages/Analytics/AnalyticsPage';
 import Navbar from './components/shared/Navbar';
 import GlobalStyles from './styles/GlobalStyles';
 import IssueDetailPage from './pages/Issues/IssueDetailPage';
+import IssueForm from './components/issues/IssueForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,8 @@ function App() {
           <Route path="/map" element={<MapPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route path="/issues/:id" element={<IssueDetailPage />} />
+                <Route path="/issues/new" element={<IssueForm />} />
+      <Route path="/issues/edit/:id" element={<IssueForm />} />
         </Route>
       </Routes>
     </>

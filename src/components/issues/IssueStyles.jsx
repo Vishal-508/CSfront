@@ -224,3 +224,4 @@ export const Pagination = styled.div`
     color: #7f8c8d;
   }
 `;
+

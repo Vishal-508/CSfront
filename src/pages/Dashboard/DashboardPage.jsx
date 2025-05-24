@@ -19,7 +19,7 @@ const DashboardPage = () => {
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(fetchIssues({ page: 1, limit: 5, sort: 1 }));
+    dispatch(fetchIssues({ page: 1, limit: 5, sort: -1 }));
     dispatch(fetchUserIssues());
   }, [dispatch]);
 
@@ -89,7 +89,12 @@ const DashboardPage = () => {
 
       <div style={{ marginTop: '20px', display: 'flex', gap: '20px' }}>
         <button style={{ padding: '10px 20px' }} onClick={() => navigate('/issues')}>View All Issues</button>
-        <button style={{ padding: '10px 20px' }} onClick={() => navigate('/issues/new')}>Report New Issue</button>
+        <button 
+  style={{ padding: '10px 20px' }} 
+  onClick={() => navigate('/issues/new')}
+>
+  Report New Issue
+</button>
       </div>
     </DashboardContainer>
   );

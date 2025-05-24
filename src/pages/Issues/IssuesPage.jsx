@@ -36,7 +36,7 @@ const IssuesPage = () => {
   const [filters, setFilters] = useState({
     category: '',
     status: '',
-    sort: 1,
+    sort: -1,
   });
   const [page, setPage] = useState(1);
 
@@ -141,8 +141,8 @@ const {
             <option value="Resolved">Resolved</option>
           </select>
           <select name="sort" value={filters.sort} onChange={handleFilterChange}>
-            <option value="newest">Newest First</option>
-            <option value="most-voted">Most Voted</option>
+            <option value="-1">Newest First</option>
+            <option value="1">Most Voted</option>
           </select>
         </FilterBar>
       )}
@@ -155,9 +155,10 @@ const {
         ) : (
           displayedIssues.map((issue) => (
             <IssueCard key={issue._id}>
-              {issue.image && (
+                {console.log("issue.image",issue.status)}
+              {issue.imageUrl && (
                 <IssueImage
-                  src={issue.image}
+                  src={issue.imageUrl}
                   alt={issue.title}
                 />
               )}
@@ -173,12 +174,12 @@ const {
                   </IssueStatus>
                 </IssueMeta>
                 <IssueVotes>
-                  <span>{issue.votes} votes</span>
+                  <span>{issue.voteCount} votes</span>
                   <span>
                     {new Date(issue.createdAt).toLocaleDateString()}
                   </span>
                 </IssueVotes>
-                {activeTab === 'my-issues' && issue.status === 'Pending' && (
+                { issue.status === 'Pending' && (
                   <IssueActions>
                     <IssueButton
                       onClick={() => navigate(`/issues/edit/${issue._id}`)}

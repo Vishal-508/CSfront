@@ -96,3 +96,43 @@ export const DetailBackButton = styled.button`
     background-color: #e0e6ed;
   }
 `;
+
+
+export const DetailStatusBadge = styled.span`
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background-color: ${({ status }) => 
+    status === 'resolved' ? '#4CAF50' : 
+    status === 'in progress' ? '#FFC107' : '#F44336'};
+  color: white;
+`;
+
+export const DetailVoteCount = styled.span`
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+`;
+
+export const DetailActionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+`;
+
+export const DetailLoading = styled.div`
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+`;
+
+export const DetailError = styled.div`
+  padding: 2rem;
+  text-align: center;
+  color: #f44336;
+`;
